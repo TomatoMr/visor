@@ -1,0 +1,4 @@
+pid: "./pid" #记录进程pid的文件路径
+snap_path: "./" #存放报告日志的文件路径
+alter_limit: 80.0 #cpu告警线
+interval: 10 #cpu负载采集间隔， 单位秒
