@@ -15,13 +15,12 @@ func visor() {
 		if per[0] > config.GetConfig().AlterLimit {
 			record(per[0])
 		}
-		time.Sleep(time.Duration(config.GetConfig().Interval) * time.Second)
 	}
 }
 
 func record(per float64) {
-	now := time.Now().Format(time.RFC3339)
-	logFile := now + ".log"
+	now := time.Now().Format("2006-01-02-15-04-05")
+	logFile := config.GetConfig().SnapPath + now + ".log"
 	f, _ := os.Create(logFile)
 	defer f.Close()
 	//loadCmd := exec.Command("w")
