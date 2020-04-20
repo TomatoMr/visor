@@ -26,14 +26,14 @@ func main() {
 	flag.BoolVar(&restart, "restart", false, "restart your app, just like this: -restart or -restart=true|false.")
 	flag.BoolVar(&daemon, "d", false, "daemon, just like this: -start -d or -d=true|false.")
 	flag.Parse()
-	if err := config.InitConfig(configPath); err != nil{
+	if err := config.InitConfig(configPath); err != nil {
 		fmt.Print(err)
 		os.Exit(-1)
 	}
 
 	if start {
 		if daemon {
-			cmd := exec.Command(os.Args[0], "-start")
+			cmd := exec.Command(os.Args[0], "-start", "-config="+configPath)
 			cmd.Start()
 			os.Exit(0)
 		}
