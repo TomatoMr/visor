@@ -29,7 +29,7 @@ func record(per float64) {
 	f.Write([]byte{'\n'})
 	f.Write([]byte("此时cpu占用率：" + strconv.FormatFloat(per, 'f', 10, 64)))
 	f.Write([]byte{'\n'})
-	topCmd := exec.Command("top", "-H", "-n", "1", "-b")
+	topCmd := exec.Command("top", "-H", "-w", "512", "-c", "-n", "1", "-b")
 	topOutput, _ := topCmd.Output()
 	f.Write(topOutput)
 }
