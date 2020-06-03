@@ -63,7 +63,8 @@ func main() {
 func Start() {
 	defer wg.Done()
 	ioutil.WriteFile(config.GetConfig().Pid, []byte(fmt.Sprintf("%d", os.Getpid())), 0666) //记录pid
-	go visor()
+	go visorCpu()
+	go visorMem()
 }
 
 func Stop() {

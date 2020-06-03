@@ -7,10 +7,15 @@ import (
 )
 
 type Config struct {
-	Pid string `yaml:"pid"`
-	SnapPath string `yaml:"snap_path"`
-	AlterLimit float64 `yaml:"alter_limit"`
-	Interval int `yaml:"interval"`
+	Pid          string   `yaml:"pid"`
+	SnapPath     string   `yaml:"snap_path"`
+	AlterLimit   float64  `yaml:"alter_limit"`
+	Interval     int      `yaml:"interval"`
+	FromMail     string   `yaml:"fromMail"`
+	FromMailHost string   `yaml:"fromMailHost"`
+	FromMailPass string   `yaml:"fromMailPass"`
+	FromMailPort string   `yaml:"fromMailPort"`
+	ToMail       []string `yaml:"toMail"`
 }
 
 var conf Config
